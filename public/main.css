@@ -1,0 +1,33 @@
+body {
+  background-color: white;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#page {
+  margin: 0 auto; /* This centers the #page div horizontally */
+  width: 700px;
+}
+
+#page nav {
+  margin: 20px 0;
+}
+
+#page nav ul {
+  list-style: none; /* This gets rid of the left-hand-side dots */
+  margin: 0;
+  padding: 0;
+}
+
+#page nav li {
+  display: inline-block; /* This makes the list display left-to-right rather than top-to-bottom */
+  margin-right: 10px;
+}
+
+#post-form textarea {
+  width: 400px;
+  min-height: 50px;
+}
+
+#content {
+  font
+}
