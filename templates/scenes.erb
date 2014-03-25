@@ -1,0 +1,34 @@
+<h2>OSIRIS GAME</h2>
+
+Hello!
+<div id="post-form">
+  <form action="/scenes" method="post">
+    <div>
+      <input type="text" name="title" placeholder="Scene title">
+    </div>
+    <div>
+      <input type="integer" name="parent_id" placeholder="Scene leading up to this one">
+    </div>
+    <div>
+      <textarea class="icarus" name="body" placeholder="Scene body"></textarea>
+    </div>
+    <div>
+      <input class="submit" type="submit" value="Post">
+    </div>
+  </form>
+</div>
+<ul class="scene-list">
+  <% scenes.each do |scene| %>
+    <li>
+      <p>ID: <%= scene.id %></p>
+      <p>Parent ID: <%= scene.parent_id %></p>
+      <p><strong><%= escape(scene.title) %></strong></p>
+      <p><%= escape(scene.body) %></p>
+      <p>
+        <form action="/scenes/<%= scene.id %>/delete" method="post">
+          <input class="button" type="submit" value="Delete">
+        </form>
+      </p>
+    </li>
+  <% end %>
+</ol>

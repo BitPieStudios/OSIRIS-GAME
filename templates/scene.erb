@@ -1,0 +1,11 @@
+<h2 class="scene-title"><%= scene.title %></h2>
+
+<div class="scene-body">
+  <p><%= scene.body %></p>
+</div>
+
+<ul>
+  <% scene.next_scenes.each do |scene| %>
+    <li><a href="/scenes/<%= scene.id %>"><%= scene.title %></a></li>
+  <% end %>
+</ul>
