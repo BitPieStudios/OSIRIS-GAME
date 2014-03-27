@@ -26,9 +26,7 @@ get '/scenes' do
 end
 
 post '/scenes' do
-  # create a new scene
   Scene.create(:parent_id => params[:parent_id], :title => params[:title], :body => params[:body])
-  # How? Did this work?
   redirect to('/scenes')
 end
 
