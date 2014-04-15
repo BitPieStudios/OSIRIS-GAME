@@ -1,11 +1,30 @@
 <h2 class="scene-title"><%= scene.title %></h2>
 
+<div id="scene-timer"></div>
+
 <div class="scene-body">
   <p><%= scene.body %></p>
 </div>
 
-<ul>
+<ul id="scene-choices">
   <% scene.next_scenes.each do |scene| %>
     <li><a href="/scenes/<%= scene.id %>"><%= scene.title %></a></li>
   <% end %>
 </ul>
+
+<script type="text/javascript">
+var starting_seconds = 5.0;
+var seconds_left = starting_seconds;
+
+$('#scene-timer').text(seconds_left.toFixed(2)).css('color', 'hsla(0, 100%, 0%, 1)');
+
+setInterval(function() {
+  seconds_left = Math.max(seconds_left - 50/1000, 0);
+  var l = 50*(starting_seconds - seconds_left)/starting_seconds;
+  $('#scene-timer').text(seconds_left.toFixed(2)).css('color', 'hsla(0, 100%, ' + l + '%, 1)');
+
+  if (seconds_left == 0) {
+    $('#scene-choices').replaceWith("<p>You are dead!</p>");
+  }
+}, 50);
+</script>
